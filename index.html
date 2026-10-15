@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="أصل الحكاية — قصص تكشف كيف غيّرت الاكتشافات والاختراعات والأخطاء مجرى التاريخ.">
+  <meta name="theme-color" content="#10131d">
+  <title>أصل الحكاية | كل شيء له بداية</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #10131d;
+      --panel: #191e2b;
+      --text: #f7f3ea;
+      --muted: #b9bdca;
+      --gold: #e7bd72;
+      --line: rgba(255,255,255,.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1100px, 90%);
+      margin-inline: auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(16,19,29,.96);
+    }
+
+    nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding-block: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--gold);
+      border-radius: 14px;
+      color: var(--gold);
+      font-size: 1.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .nav-links a:hover, footer a:hover { color: var(--gold); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding-block: 100px 90px;
+      background:
+        radial-gradient(ellipse at 15% 15%, rgba(231,189,114,.14), transparent 45%),
+        radial-gradient(ellipse at 90% 80%, rgba(90,106,160,.16), transparent 45%);
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    h1 {
+      max-width: 800px;
+      margin: 18px 0;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1.25;
+      letter-spacing: -.04em;
+    }
+
+    h1 span { color: var(--gold); }
+
+    .hero p {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.13rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 10px 22px;
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      font-weight: 700;
+      transition: transform .2s, background .2s;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .button.primary {
+      background: var(--gold);
+      color: #171820;
+    }
+
+    .button.secondary { color: var(--gold); }
+
+    section { padding-block: 70px; }
+
+    .section-heading { margin-bottom: 30px; }
+
+    .section-heading h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+    }
+
+    .section-heading p, .muted { color: var(--muted); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      padding: 25px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .card-icon {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 16px;
+      border-radius: 12px;
+      background: rgba(231,189,114,.12);
+      font-size: 1.5rem;
+    }
+
+    .card h3 { margin: 0 0 8px; font-size: 1.2rem; }
+    .card p { margin: 0; color: var(--muted); }
+
+    .about {
+      background: #151a26;
+      border-block: 1px solid var(--line);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .about-panel {
+      padding: 28px;
+      border: 1px solid rgba(231,189,114,.3);
+      border-radius: 16px;
+      background: rgba(231,189,114,.05);
+    }
+
+    .about-panel strong {
+      display: block;
+      color: var(--gold);
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .notice {
+      margin-top: 22px;
+      padding: 14px 18px;
+      border-right: 3px solid var(--gold);
+      background: rgba(231,189,114,.06);
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    footer {
+      padding-block: 32px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .copyright { color: var(--muted); font-size: .85rem; }
+
+    @media (max-width: 760px) {
+      .hero { padding-block: 65px; }
+      .cards { grid-template-columns: 1fr; }
+      .about-content { grid-template-columns: 1fr; }
+      nav { align-items: flex-start; }
+      .nav-links { gap: 12px 18px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container" aria-label="التنقل الرئيسي">
+      <a class="brand" href="#home" aria-label="أصل الحكاية - الرئيسية">
+        <span class="brand-mark" aria-hidden="true">ح</span>
+        <span>أصل الحكاية</span>
+      </a>
+      <div class="nav-links">
+        <a href="#home">الرئيسية</a>
+        <a href="#stories">ماذا نقدم؟</a>
+        <a href="#about">عن المشروع</a>
+        <a href="#contact">التواصل</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="eyebrow">وراء كل شيء حكاية</div>
+        <h1>كل شيء له بداية.<br><span>وهذي أصل الحكاية.</span></h1>
+        <p>
+          نرجع إلى اللحظة الأولى وراء الاختراعات والاكتشافات والأخطاء
+          التي غيّرت العالم، ونرويها بأسلوب قصصي مبسّط يجمع المعرفة
+          والمتعة، للكبار والصغار.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#stories">اكتشف عالمنا</a>
+          <a class="button secondary" href="#about">تعرّف علينا</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="stories">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">حكايات تستحق أن تُروى</div>
+          <h2>العالم مليء بالبدايات غير المتوقعة</h2>
+          <p>نبحث عن القصة وراء المعلومة، وليس المعلومة وحدها.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">💡</div>
+            <h3>اختراعات غيّرت العالم</h3>
+            <p>كيف بدأت أفكار بسيطة، وكيف تحولت إلى اختراعات أثّرت في حياتنا اليومية.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">🔍</div>
+            <h3>اكتشافات بالصدفة</h3>
+            <p>لحظات غير متوقعة قادت إلى معرفة جديدة وفتحت أبوابًا لم تكن في الحسبان.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">🧩</div>
+            <h3>أخطاء صنعت التاريخ</h3>
+            <p>قصص محاولات لم تسر كما خُطط لها، لكنها قادت إلى نتائج مدهشة.</p>
+          </article>
+        </div>
+
+        <div class="notice">
+          نحرص على تقديم القصص بأسلوب واضح، مع التمييز بين الحقائق التاريخية
+          والروايات التي تحتاج إلى تحقق.
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-content">
+        <div>
+          <div class="eyebrow">عن أصل الحكاية</div>
+          <h2>المعلومة تجذبك، والقصة تجعلك تتذكرها.</h2>
+          <p class="muted">
+            أصل الحكاية مشروع محتوى تعليمي قصصي يهدف إلى تحويل المعرفة
+            إلى تجارب مشاهدة ممتعة وسهلة الفهم، من خلال سرد بصري يساعد
+            على الفضول والتفكير واكتشاف العالم.
+          </p>
+        </div>
+        <div class="about-panel">
+          <strong>فضول. قصة. معرفة.</strong>
+          نؤمن أن وراء كل اختراع واكتشاف حدثًا أو سؤالًا أو محاولة تستحق
+          أن نعود إليها ونفهمها.
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">خلّنا نتواصل</div>
+          <h2>للاستفسارات والتعاون</h2>
+          <p>
+            للتواصل بشأن المشروع أو الاستفسارات العامة، استخدم حسابات
+            أصل الحكاية الرسمية.
+          </p>
+        </div>
+        <p class="muted">
+          حساب Instagram:
+          <a href="https://www.instagram.com/asl.alhekaya_tv/"
+             target="_blank" rel="noopener noreferrer">
+            @asl.alhekaya_tv
+          </a>
+        </p>
+        <p class="muted">
+          بريد التواصل الرسمي سيُضاف بعد اعتماده.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-row">
+        <a class="brand" href="#home">
+          <span class="brand-mark" aria-hidden="true">ح</span>
+          <span>أصل الحكاية</span>
+        </a>
+        <div class="footer-links">
+          <a href="terms.html">شروط الاستخدام</a>
+          <a href="privacy.html">سياسة الخصوصية</a>
+          <a href="#contact">التواصل</a>
+        </div>
+      </div>
+      <p class="copyright">
+        © <span id="year">2026</span> أصل الحكاية. جميع الحقوق محفوظة.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
